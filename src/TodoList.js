@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TodoItem from './todoItem';
 
 class TodoList extends Component {
   constructor(props) {
@@ -22,9 +23,9 @@ class TodoList extends Component {
     })
   }
   //删除生成的列表中的项
-  handleDeleteItemClick (index) {
+  handleDelete(index) {
     const list = [...this.state.list];
-    list.splice(index,1);
+    list.splice(index, 1);
     this.setState({
       list
     })
@@ -39,7 +40,11 @@ class TodoList extends Component {
           <ul>
           {
             this.state.list.map( (item,index) => {
-              return <li key={index} onClick={this.handleDeleteItemClick.bind(this,index)}>{item}</li>
+              return <TodoItem 
+                        deleteItem={this.handleDelete.bind(this)}
+                        content={item}
+                        index={index}
+                        key={index}/>
             })
           }
           </ul>
