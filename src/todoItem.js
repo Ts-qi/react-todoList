@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 
 class TodoItem extends Component {
-    constructor(props) {
-        super(props)
-    }
     //删除操作
-    handleClickDelete() {
-        this.props.deleteItem(this.props.index)
+    handleClickDelete = ()=> {
+        const { deleteItem,index} = this.props
+        deleteItem(index)
     }
     render(){
+        const { content} = this.props;
         return (
-            <div onClick={this.handleClickDelete.bind(this)}>
-                {this.props.content}
+            <div onClick={this.handleClickDelete}>
+                {content}
             </div>
         )
     }

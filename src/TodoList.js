@@ -21,7 +21,7 @@ class TodoList extends Component {
     this.setState({
       inputValue: e.target.value
     })
-  }
+  };
   //删除生成的列表中的项
   handleDelete(index) {
     const list = [...this.state.list];
@@ -29,6 +29,20 @@ class TodoList extends Component {
     this.setState({
       list
     })
+  };
+  //获取列表数据
+  getItemListData () {
+    return(
+      this.state.list.map((item, index) => {
+        return (
+          <TodoItem
+            deleteItem={this.handleDelete.bind(this)}
+            content={item}
+            index={index}
+            key={index} />
+        )
+      })
+    )
   }
   render() {
     return (
@@ -37,20 +51,9 @@ class TodoList extends Component {
           <input value={this.state.inputValue} type="text" onChange={this.handleInputChange}/>
             <button onClick={this.handleButtonClick}>add</button>
           </div>
-          <ul>
-          {
-            this.state.list.map( (item,index) => {
-              return <TodoItem 
-                        deleteItem={this.handleDelete.bind(this)}
-                        content={item}
-                        index={index}
-                        key={index}/>
-            })
-          }
-          </ul>
+          <ul>{this.getItemListData()}</ul>
       </div>
     );
   }
 }
-
 export default TodoList;
