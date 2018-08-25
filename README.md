@@ -11,8 +11,8 @@ react 学习； 简单的 todoList项目；
 4 jsx 中的 render 需要返回的是一个大的 jsx ；必须用一个div 包裹起来；
 
 5 新增功能：  
-    1 在 state 中定义一个 inputValue；给 input 中的 value = {this.state.inputValue}将输入框绑定一个onChange 事件； 
-    2 每次输入后就将onChange 事件中的e 的value 值； 赋值给 inputValue; 
-    3 在点击新增按钮时，将this.state.inputValue 中的值，放入 uL 中的 li 的列表中； 
+    1 在 state 中定义一个 inputValue；给 input 中的 value = {this.state.inputValue}将输入框绑定一个onChange 事件；<br/> 
+    2 每次输入后就将onChange 事件中的e 的value 值； 赋值给 inputValue; <br/> 
+    3 在点击新增按钮时，将this.state.inputValue 中的值，放入 uL 中的 li 的列表中；<br/>  
     4 然后将输入框的值给清空；inputValue = '';
     
