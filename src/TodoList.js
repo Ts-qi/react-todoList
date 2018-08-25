@@ -8,15 +8,25 @@ class TodoList extends Component {
       inputValue:''
     }
   }
+  // 点击新增
   handleButtonClick= ()=> {
     this.setState({
       list:[...this.state.list, this.state.inputValue],
       inputValue:''
     })
   };
+  //获取到输入框的值
   handleInputChange = (e)=> {
     this.setState({
       inputValue: e.target.value
+    })
+  }
+  //删除生成的列表中的项
+  handleDeleteItemClick (index) {
+    const list = [...this.state.list];
+    list.splice(index,1);
+    this.setState({
+      list
     })
   }
   render() {
@@ -29,7 +39,7 @@ class TodoList extends Component {
           <ul>
           {
             this.state.list.map( (item,index) => {
-              return <li key={index}>{item}</li>
+              return <li key={index} onClick={this.handleDeleteItemClick.bind(this,index)}>{item}</li>
             })
           }
           </ul>
